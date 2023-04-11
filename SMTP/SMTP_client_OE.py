@@ -52,7 +52,7 @@ if authRecv[:3] != '334':
 	print('334 reply not received from server.')
 
 # Send Username in base64 (Note: sender must enable access from 'less secure apps')
-username = "araujocardososabrina@gmail.com"# put in the sender's username here
+username = "email"# put in the sender's username here
 encodedUsername = base64.b64encode(username.encode())
 stringUsername = str(encodedUsername, "utf-8") + "\r\n"
 clientSocket.write(stringUsername.encode())
@@ -72,7 +72,7 @@ if passRecv[:3] != '235':
 	print('235 reply not received from server.')
 
 # Send MAIL FROM command and print server response.
-sender = "<araujocardososabrina@gmail.com>"# put in the sender's username, in '< >' here
+sender = "<email>"# put in the sender's username, in '< >' here
 mailFromCommand = 'MAIL FROM: ' + sender + '\r\n'
 clientSocket.send(mailFromCommand.encode())
 recv2 = clientSocket.recv(1024).decode()
@@ -81,7 +81,7 @@ if recv2[:3] != '250':
 	print('250 reply not received from server.')
 
 # Send RCPT TO command and print server response. 
-recipient = "sabrina.cardoso@ee.ufcg.edu.br"# put in the recipient's username, in '< >' here
+recipient = "<email>"# put in the recipient's username, in '< >' here
 rcptToCommand = 'RCPT TO: ' + recipient + '\r\n'
 clientSocket.send(rcptToCommand.encode())
 recv3 = clientSocket.recv(1024).decode()
